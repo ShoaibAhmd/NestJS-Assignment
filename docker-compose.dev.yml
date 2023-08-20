@@ -34,9 +34,23 @@ services:
       - ./node_modules:/usr/src/app/node_modules
       - ./src:/usr/src/app/src:ro
 
+  elasticsearch:
+    image: 'docker.elastic.co/elasticsearch/elasticsearch:7.15.0'
+    container_name: 'elasticsearch'
+    environment:
+      - discovery.type=single-node
+    networks:
+      - backend_bridge
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
 networks:
   backend_bridge:
     driver: bridge
 
 volumes:
   db_data:
+  es_data:

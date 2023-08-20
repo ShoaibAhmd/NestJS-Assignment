@@ -24,9 +24,11 @@
     "migration:run": "npm run typeorm -- --dataSource=src/database/data-source.ts migration:run"
   },
   "dependencies": {
+    "@elastic/elasticsearch": "^8.9.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^3.0.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/elasticsearch": "^10.0.1",
     "@nestjs/jwt": "^10.1.0",
     "@nestjs/mapped-types": "^2.0.2",
     "@nestjs/passport": "^10.0.0",

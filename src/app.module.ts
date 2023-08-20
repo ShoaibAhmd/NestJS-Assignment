@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MovieModule } from './features/movie/movie.module';
@@ -28,7 +26,5 @@ import { MovieRatingModule } from './features/movie-rating/movie-rating.module';
     UserModule,
     MovieRatingModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
