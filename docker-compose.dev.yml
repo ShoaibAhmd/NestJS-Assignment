@@ -1,0 +1,42 @@
+version: '3'
+name: nestjs_assignment
+services:
+  db:
+    image: 'postgres:14.1'
+    container_name: 'postgres_assignment'
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=filmsdb
+    networks:
+      - backend_bridge
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    container_name: 'nestjs_api'
+    depends_on:
+      - db
+    env_file:
+      - ./.dev.env
+    networks:
+      - backend_bridge
+    ports:
+      - 8080:8080
+      - 9229:9229
+    volumes:
+      - ./node_modules:/usr/src/app/node_modules
+      - ./src:/usr/src/app/src:ro
+
+networks:
+  backend_bridge:
+    driver: bridge
+
+volumes:
+  db_data:

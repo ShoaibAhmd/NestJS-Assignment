@@ -1,0 +1,22 @@
+###################
+# BUILD FOR LOCAL DEVELOPMENT
+###################
+
+FROM node:18-alpine
+
+# Create app directory
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+# Install app dependencies using `npm install`
+RUN npm install
+
+# Bundle app source
+COPY . .
+
+# Build command
+RUN npm run build
+
+EXPOSE 8080
+ENTRYPOINT ["/bin/sh", "-c", "npm run start:dev"]
