@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { MovieModule } from './features/movie/movie.module';
 import { UserModule } from './features/user/user.module';
 import { MovieRatingModule } from './features/movie-rating/movie-rating.module';
+import { ElasticSearchModule } from './elastic-search/elastic-search.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { MovieRatingModule } from './features/movie-rating/movie-rating.module';
     MovieModule,
     UserModule,
     MovieRatingModule,
+    ElasticSearchModule,
   ],
 })
 export class AppModule {}

@@ -5,8 +5,9 @@ import {
 } from '@nestjs/common';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Movie } from 'src/database/entities/movie.entity';
+import { Movie } from '../../database/entities/movie.entity';
 import { Repository } from 'typeorm';
+import { SearchService } from '../../elastic-search/elastic-search.service';
 
 @Injectable()
 export class MovieService {
@@ -15,11 +16,14 @@ export class MovieService {
   constructor(
     @InjectRepository(Movie)
     private readonly movieRepo: Repository<Movie>,
+    private readonly searchService: SearchService,
   ) {}
 
   async create(createMovieDto: CreateMovieDto) {
     try {
-      await this.movieRepo.save(createMovieDto);
+      const movie = await this.movieRepo.save(createMovieDto);
+
+      await this.searchService.indexDocument('movie', movie);
 
       this.logger.log(`Movie created successfully.`);
     } catch (error) {
@@ -30,9 +34,5 @@ export class MovieService {
       }
       throw new InternalServerErrorException('Something went wrong');
     }
-  }
-
-  findAll() {
-    return `This action returns all movie`;
   }
 }

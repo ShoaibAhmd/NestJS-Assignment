@@ -15,9 +15,4 @@ export class MovieController {
 
     return new ApiResponse(200, 'Successfully created movie rating.', null);
   }
-
-  @Get()
-  findAll() {
-    return this.movieService.findAll();
-  }
 }
