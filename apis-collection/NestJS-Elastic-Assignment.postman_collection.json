@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "868a5ad8-b4a3-4d4d-856e-f47a89fa4ed2",
+		"name": "NestJS-Elastic-Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6040964"
+	},
+	"item": [
+		{
+			"name": "Movie Searching & Filtering",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoic2hvYWliKzFAeWFob28uY29tIiwiaWF0IjoxNjkzMDYyODI2LCJleHAiOjE3NTMwNjI4MjZ9.FybhUcWc62sguflUhTan4wEyRYdtCBWsfSvCkRr4n3M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/movie-rating/search?query=best&range=rating:lte:4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movie-rating",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "best"
+						},
+						{
+							"key": "range",
+							"value": "rating:lte:4"
+						},
+						{
+							"key": "filters",
+							"value": "movie.genre:drama",
+							"disabled": true
+						},
+						{
+							"key": "filters",
+							"value": "movie.genre:drama",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Movie Rating",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoic2hvYWliKzFAeWFob28uY29tIiwiaWF0IjoxNjkzMDYyODI2LCJleHAiOjE3NTMwNjI4MjZ9.FybhUcWc62sguflUhTan4wEyRYdtCBWsfSvCkRr4n3M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": { \"id\": 3 },\n    \"movie\": { \"id\": 2 },\n    \"comment\": \"new movie ever\",\n    \"rating\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/movie-rating/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movie-rating",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsImVtYWlsIjoic2hvYWliKzFAeWFob28uY29tIiwiaWF0IjoxNjkyOTkwMzk1LCJleHAiOjE2OTI5OTEyOTV9.gzACyQBGKTeUzNkN73gqGz1BIPmyFJudB30N092joVE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"some good movie\",\n    \"description\": \"string;\",\n    \"releaseDate\": \"2023-08-20 15:30:00\",\n    \"ticketPrice\": 1500,\n    \"country\": \"PK\",\n    \"genre\": \"genre 1\",\n    \"photo\": \"some/good/url\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/movie/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign-In",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"shoaib 2\",\n    \"email\": \"shoaib+2@yahoo.com\",\n    \"password\": \"Techwards@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/sign-in",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign-Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"shoaib 3\",\n    \"email\": \"shoaib+3@yahoo.com\",\n    \"password\": \"Techwards@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/sign-up",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
