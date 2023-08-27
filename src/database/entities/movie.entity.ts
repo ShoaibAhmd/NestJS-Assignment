@@ -1,4 +1,4 @@
-import { MovieRating } from 'src/database/entities/movie-rating.entity';
+import { MovieRating } from '../../database/entities/movie-rating.entity';
 import {
   Column,
   CreateDateColumn,

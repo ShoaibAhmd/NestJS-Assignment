@@ -6,7 +6,7 @@ import {
 import { CreateMovieRatingDto } from './dto/create-movie-rating.dto';
 import { UpdateMovieRatingDto } from './dto/update-movie-rating.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { MovieRating } from 'src/database/entities/movie-rating.entity';
+import { MovieRating } from '../../database/entities/movie-rating.entity';
 import { Repository } from 'typeorm';
 import { SearchService } from '../../elastic-search/elastic-search.service';
 

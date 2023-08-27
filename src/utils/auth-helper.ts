@@ -1,7 +1,7 @@
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import hmacService from './hmac';
-import { TokenPayload, Tokens } from 'src/features/user/types/auth-types';
+import { TokenPayload, Tokens } from '../features/user/types/auth-types';
 
 class AuthHelper {
   private readonly logger = new Logger(AuthHelper.name);

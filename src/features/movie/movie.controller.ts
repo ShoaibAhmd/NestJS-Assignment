@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
 import { MovieService } from './movie.service';
 import { CreateMovieDto } from './dto/create-movie.dto';
-import { ApiResponse } from 'src/utils/api-response';
+import { ApiResponse } from '../../utils/api-response';
 import { JwtAuthGuard } from '../user/guards/auth.guard';
 
 @UseGuards(JwtAuthGuard)

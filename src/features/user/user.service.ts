@@ -8,11 +8,11 @@ import {
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/database/entities/user.entity';
+import { User } from '../../database/entities/user.entity';
 import { Repository } from 'typeorm';
-import authHelper from 'src/utils/auth-helper';
+import authHelper from '../../utils/auth-helper';
 import { SignInDto } from './dto/sign-in.dto';
-import hmacService from 'src/utils/hmac';
+import hmacService from '../../utils/hmac';
 
 @Injectable()
 export class UserService {
