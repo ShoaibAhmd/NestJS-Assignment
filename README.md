@@ -21,3 +21,9 @@ Run the following command to execute the application on development environment.
 ```bash
 $ docker-compose -f docker-compose.dev.yml up --build
 ```
+
+# run unit tests
+
+```bash
+$ npm run test
+```
