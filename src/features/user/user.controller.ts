@@ -28,7 +28,7 @@ export class UserController {
   async signin(@Body() signInDto: SignInDto) {
     const tokens = await this.userService.signin(signInDto);
 
-    return new ApiResponse(200, 'Successfully logged in.', tokens);
+    return new ApiResponse(200, 'Successfully signed in.', tokens);
   }
 
   @Get()
