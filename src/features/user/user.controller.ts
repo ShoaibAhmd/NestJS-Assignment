@@ -15,7 +15,7 @@ import { JwtAuthGuard } from './guards/auth.guard';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
 
   @Post('sign-up')
   async signup(@Body() createUserDto: CreateUserDto) {
@@ -28,7 +28,7 @@ export class UserController {
   async signin(@Body() signInDto: SignInDto) {
     const tokens = await this.userService.signin(signInDto);
 
-    return new ApiResponse(200, 'Successfully signed in.', tokens);
+    return new ApiResponse(200, 'Successfully logged in.', tokens);
   }
 
   @Get()
