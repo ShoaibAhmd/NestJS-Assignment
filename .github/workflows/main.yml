@@ -3,7 +3,7 @@ name: Deploy on EC2
 on:
   push:
     branches:
-      - main
+      - no-elastic
 
 jobs:
   deploy:
